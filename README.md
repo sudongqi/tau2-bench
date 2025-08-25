@@ -1,7 +1,7 @@
 
 ## Resources & Reference
 
-- [tau2 paper](https://arxiv.org/abs/2506.07982)
+- [$\tau^2$ paper](https://arxiv.org/abs/2506.07982)
 - [source code](https://github.com/sierra-research/tau2-bench)
     - Added `main.py`, `reviewer.py`, and `README.md` (old `README.md` was renamed to `README_ORG.md`)
     - Disabled `NLAssertionsEvaluator` in `src/tau2/evaluator/evaluator.py`  
@@ -250,19 +250,19 @@ By examining the reviewer’s observation outputs, we can not only quantify the 
 ## Conditions
 
 1. **User error**
-   - `user_quit_conversation_prematurely == True`  
-   - OR `user_gave_wrong_details_unintentionally == True`
+   - `user_quit_conversation_prematurely` == True  
+   - OR `user_gave_wrong_details_unintentionally` == True
 
 2. **Agent fulfilled basic duties but the environment check failed**
-   - `agent_failed_to_check_details == False`  
-   - AND `agent_made_unwanted_action == False`  
-   - AND `agent_made_mistake_due_to_pressure == False`  
-   - AND `agent_made_calculation_error == False`  
-   - AND `agent_made_calculation_error_about_time == False`
+   - `agent_failed_to_check_details` == False
+   - AND `agent_made_unwanted_action` == False
+   - AND `agent_made_mistake_due_to_pressure` == False
+   - AND `agent_made_calculation_error` == False
+   - AND `agent_made_calculation_error_about_time` == False
 
 3. **Agent failed due to user pressure**
-   - `user_put_pressure_on_agent == True`  
-   - AND `agent_made_mistake_due_to_pressure == True`
+   - `user_put_pressure_on_agent` == True  
+   - AND `agent_made_mistake_due_to_pressure` == True
 
 ## Credit Assignment
 
