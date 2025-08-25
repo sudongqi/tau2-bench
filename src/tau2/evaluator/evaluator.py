@@ -79,12 +79,15 @@ def evaluate_simulation(
             task=task,
             full_trajectory=simulation.messages,
         )
+
+        """
         nl_reward_info = NLAssertionsEvaluator.calculate_reward(
             task=task,
             full_trajectory=simulation.messages,
         )
+        """
 
-        ## Combine all the rewards.
+        # Combine all the rewards.
         reward = 1.0
         env_bases = {RewardType.DB, RewardType.ENV_ASSERTION}
         action_bases = {RewardType.ACTION}
@@ -101,10 +104,14 @@ def evaluate_simulation(
             if action_reward_info.reward_breakdown is not None:
                 reward_breakdown.update(action_reward_info.reward_breakdown)
             reward *= action_reward_info.reward
+
+        """
         if task_reward_basis & nl_bases:
             if nl_reward_info.reward_breakdown is not None:
                 reward_breakdown.update(nl_reward_info.reward_breakdown)
             reward *= nl_reward_info.reward
+        """
+
         if task_reward_basis & comm_bases:
             if communicate_reward_info.reward_breakdown is not None:
                 reward_breakdown.update(communicate_reward_info.reward_breakdown)
@@ -115,13 +122,13 @@ def evaluate_simulation(
             db_check=env_reward_info.db_check,
             env_assertions=env_reward_info.env_assertions,
             action_checks=action_reward_info.action_checks,
-            nl_assertions=nl_reward_info.nl_assertions,
+            # nl_assertions=nl_reward_info.nl_assertions,
             communicate_checks=communicate_reward_info.communicate_checks,
             reward_basis=task.evaluation_criteria.reward_basis,
             reward_breakdown=reward_breakdown,
             info={
                 "env": env_reward_info.info,
-                "nl": nl_reward_info.info,
+                # "nl": nl_reward_info.info,
                 "communicate": communicate_reward_info.info,
                 "action": action_reward_info.info,
             },
