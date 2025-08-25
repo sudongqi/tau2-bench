@@ -1,7 +1,7 @@
 
 ## Resources & Reference
 
-- [$\tau^2$ paper](https://arxiv.org/abs/2506.07982)
+- [tau2 paper](https://arxiv.org/abs/2506.07982)
 - [source code](https://github.com/sierra-research/tau2-bench)
     - Added `main.py`, `reviewer.py`, and `README.md` (old `README.md` was renamed to `README_ORG.md`)
     - Disabled `NLAssertionsEvaluator` in `src/tau2/evaluator/evaluator.py`  
